@@ -23,4 +23,4 @@ depends: [
   "ocaml" { >= "4.05" }
   ]
 
-build: [ [ "dune" "build" "-p" "calendars.install" "-j" jobs] ]
+build: [ [ "dune" "build" "-p" name "-j" jobs] ]
