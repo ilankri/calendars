@@ -19,7 +19,7 @@ bug-reports: "https://github.com/geneweb/calendars/issues"
 dev-repo: "git+https://github.com/geneweb/calendars.git"
 
 depends: [
-  "dune" { >= "1.10" }
+  "dune" { >= "1.11" }
   "ocaml" { >= "4.05" }
   ]
 
