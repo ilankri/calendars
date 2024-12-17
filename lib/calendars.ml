@@ -145,17 +145,22 @@ let equinoxeAutomne pAnnee =
 
 let french_of_sdn sdn =
   let greg_date = gregorian_of_sdn sdn in
+  let () = print_endline @@ Printf.sprintf "%s: year = %d month = %d day = %d" __LOC__ greg_date.year greg_date.month greg_date.day in
   let fst_vend_sdn = equinoxeAutomne greg_date.year in
   let year, fst_vend_sdn =
     if sdn < fst_vend_sdn then
+      let () = print_endline __LOC__ in
       let fst_vend_sdn = equinoxeAutomne (greg_date.year - 1) in
       let year = greg_date.year - 1792 in
       (year, fst_vend_sdn)
     else
+      let () = print_endline __LOC__ in
       let year = greg_date.year - 1791 in
       (year, fst_vend_sdn)
   in
+  let () = print_endline @@ Printf.sprintf "snd = %d fst_vend_sdn = %d" sdn fst_vend_sdn in
   let ndays = sdn - fst_vend_sdn in
+  let () = print_endline @@ Printf.sprintf "%s: ndays = %d" __LOC__ ndays in
   let month = (ndays / 30) + 1 in
   let day = (ndays mod 30) + 1 in
   { day; month; year; delta = 0; kind = French }
